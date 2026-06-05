@@ -8,7 +8,7 @@
 
 # 哈希表
 **hash table**
-
+### unordered_map
 创建：
 ``` cpp
 #include <unordered_map>
@@ -64,6 +64,71 @@ mp.empty();
 ``` cpp
 mp.at(key)
 // 如果key不存在会直接报错。如果是mp[key]，不存在会自动创建key为0。
+```
+
+### unordered_set
+创建:
+``` cpp
+#include <unordered_set>
+
+unordered_set<int> st;
+unordered_set<int> st = {1,2,3,4};
+unordered_set<string> words;
+```
+
+插入元素：
+``` cpp
+unordered_set<int> st;
+
+st.insert(1);
+st.insert(2);
+st.insert(3);
+// 重复插入不会报错，但只有一个
+```
+
+判断元素是否存在：
+``` cpp
+if (st.find(2) != st.end()) {
+    cout << "Found";
+}
+
+if (st.find(5) == st.end()) {
+    cout << "Not Found";
+}
+```
+
+删除元素：
+``` cpp
+st.erase(2);
+```
+
+获取元素个数：
+``` cpp
+unordered_set<int> st = {1,2,3};
+
+cout << st.size(); // 3
+```
+
+判断是否为空：
+``` cpp
+st.empty();
+```
+
+清空：
+``` cpp
+st.clear();
+```
+
+遍历：
+``` cpp
+for (int x : st) {
+    cout << x << " ";
+}
+```
+
+转换为vector：
+``` cpp
+vector<int> nums(st.begin(), st.end());
 ```
 
 # 字符串
