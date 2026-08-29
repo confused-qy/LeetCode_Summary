@@ -231,6 +231,7 @@ vector<int> v(5); //初始化长度，数值默认为0
 vector<int> v(5,7); //初始化长度和数值
 vector<int> v = {1,2,3,4};
 vector<pair<int,int>> v(5); //初始化为[(0,0), (0,0), (0,0), (0,0), (0,0)]
+vector<vector<int>> dp(n, vector<int>(m, 0)); //二维数组
 ```
 
 长度：
