@@ -5,6 +5,8 @@
 - [常用常数](#常用常数)
 - [栈(stack)](#栈)
 - [堆(heap)](#堆)
+- [数组(array)](#数组)
+- [指针与引用](#指针与引用)
 
 # 哈希表
 **hash table**
@@ -448,4 +450,153 @@ pq.push({5,2});
 ``` cpp
 pq.top().first
 pq.top().second
+```
+
+
+# 数组
+**array**
+
+初始化
+``` cpp
+array<int, 4> a{1, 2, 3, 4}; // 类型+长度
+array<int, 4> a{}; // 初始化为0
+```
+
+访问元素
+``` cpp
+a[100];     // 越界行为未定义
+a.at(100);  // 会进行边界检查，越界抛出异常
+
+// 获取第一个和最后一个
+a.front();
+a.back();
+```
+
+获取长度
+``` cpp
+a.size();
+```
+
+遍历
+``` cpp
+for (size_t i = 0; i < a.size(); ++i) {
+    cout << a[i] << endl;
+}
+
+// Range-based for
+for (int x : a) {
+    cout << x << endl;
+}
+
+// 如果需要修改元素
+for (int& x : a) {
+    x *= 2;
+}
+
+// 如果元素比较大又不想复制
+for (const auto& x : a) {
+    cout << x << endl;
+}
+```
+
+注：`array` 长度固定，`vector` 长度可以动态变化。
+
+# 指针与引用
+
+## Pointer（指针）
+
+指针存储的是**另一个变量的地址**。
+```cpp
+int x = 10;
+int* p = &x;
+```
+
+指针可以重新指向另一个对象：
+```cpp
+int x = 10;
+int y = 20;
+
+int* p = &x;
+p = &y;
+```
+
+注意区别：
+```cpp
+p = &y;   // 修改 p 的指向
+
+*p = 30;  // 修改 p 指向的对象
+```
+
+指针可以不指向任何对象：
+```cpp
+int* p = nullptr;
+```
+
+## Reference（引用）
+
+引用可以理解成一个变量的**别名**。
+```cpp
+int x = 10;
+int& r = x; // r = 20 -> x = 20
+```
+
+Reference 不能改变引用对象
+```cpp
+int x = 10;
+int y = 20;
+
+int& r = x;
+
+r = y; // 这里不是r改为引用y。而是x = r = y
+```
+
+所以 reference 一旦绑定到一个对象，就不能重新绑定。
+
+## `&` 的两种含义
+
+### 声明 Reference
+
+当 `&` 出现在**类型声明**中：
+```cpp
+int& r = x; // r是一个reference
+const vec4& v; // v是vec4一个对象的const reference（一般放在函数里）
+```
+
+### 获取地址
+
+当 `&` 用在一个已经存在的变量前：
+```cpp
+&x // 获取x的地址。
+```
+
+例如：
+```cpp
+int x = 10;
+int* p = &x;
+```
+
+---
+
+## `*` 的两种含义
+
+### 声明 Pointer
+
+当 `*` 出现在**类型声明**中：
+```cpp
+int* p; // p是一个 pointer。
+```
+
+### Dereference（解引用）
+
+当 `*` 用在一个 pointer 前：
+```cpp
+*p // 访问这个 pointer 指向的对象。
+```
+
+例如：
+```cpp
+int x = 10;
+int* p = &x;
+
+*p = 20; // x == 20;
 ```
