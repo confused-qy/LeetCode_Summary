@@ -35,3 +35,30 @@ x << 1       // ×2
 x >> 1       // ÷2
 x ^ x == 0   // 相同数字异或抵消
 ```
+
+## Boyer-Moore 投票算法
+
+用于寻找出现次数 **> n/2** 的多数元素。
+
+核心思想：**不同元素互相抵消，多数元素最后一定会剩下。**
+
+```cpp
+int candidate = 0;
+int count = 0;
+
+for (int x : nums) {
+    if (count == 0)
+        candidate = x;
+
+    if (x == candidate)
+        count++;
+    else
+        count--;
+}
+```
+
+- 相同 → `count++`
+- 不同 → `count--`
+- `count == 0` → 更换候选人
+
+复杂度：**时间 O(n)，空间 O(1)**。
