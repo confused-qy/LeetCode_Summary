@@ -7,6 +7,7 @@
 - [堆(heap)](#堆)
 - [数组(array)](#数组)
 - [指针与引用](#指针与引用)
+- [排序](#排序)
 
 # 哈希表
 **hash table**
@@ -599,4 +600,32 @@ int x = 10;
 int* p = &x;
 
 *p = 20; // x == 20;
+```
+
+# 排序
+
+升序
+``` cpp
+#include <algorithm>
+#include <vector>
+
+std::vector<int> nums = {5, 2, 8, 1, 3};
+
+std::sort(nums.begin(), nums.end()); // 复杂度为O(nlog(n))
+```
+
+降序
+``` cpp
+#include <functional>
+
+std::sort(nums.begin(), nums.end(), std::greater<int>());
+```
+
+lambda法：
+``` cpp
+std::sort(nums.begin(), nums.end(),
+    [](int a, int b) {
+        return a > b;
+    }
+);
 ```
