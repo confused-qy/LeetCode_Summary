@@ -180,6 +180,8 @@ for (char c : s)
 ``` cpp
 s.push_back('a');
 s.pop_back();
+
+s.erase(0, i); // 下标0开始删除i个字符
 ```
 
 检查是否为空：
