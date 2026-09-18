@@ -8,6 +8,7 @@
 - [数组(array)](#数组)
 - [指针与引用](#指针与引用)
 - [排序](#排序)
+- [队列(queue)](#队列)
 
 # 哈希表
 **hash table**
@@ -142,6 +143,8 @@ vector<int> nums(st.begin(), st.end());
 #include <string>
 
 string s = "hello";
+
+char c = s.back(); // 最后一位
 ```
 
 修改字符：
@@ -631,3 +634,42 @@ std::sort(nums.begin(), nums.end(),
     }
 );
 ```
+
+# 队列
+**queue**
+
+创建队列
+``` cpp
+queue<int> q;
+```
+
+加入元素
+``` cpp
+q.push(10);
+```
+
+删除头部元素
+``` cpp
+q.pop();
+```
+
+查看头部元素
+```cpp
+q.front();
+```
+
+查看队尾元素
+``` cpp
+q.back();
+```
+
+判断是否为空
+``` cpp
+q.empty();
+```
+
+队列中元素数量
+``` cpp
+q.size();
+```
+
