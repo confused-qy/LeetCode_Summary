@@ -9,6 +9,7 @@
 - [指针与引用](#指针与引用)
 - [排序](#排序)
 - [队列(queue)](#队列)
+- [双端队列(deque)](#双端队列)
 
 # 哈希表
 **hash table**
@@ -671,5 +672,36 @@ q.empty();
 队列中元素数量
 ``` cpp
 q.size();
+```
+
+# 双端队列
+**deque**
+
+两端都可以操作
+``` cpp
+#include <deque>
+using namespace std;
+
+deque<int> dq;
+
+dq.push_back(10);   // 尾部加入
+dq.push_back(20);
+
+dq.push_front(5);   // 头部加入
+
+// 现在：5 10 20
+
+dq.pop_back();      // 删除尾部
+dq.pop_front();     // 删除头部
+```
+
+可以访问头部/尾部/随机访问
+``` cpp
+deque<int> dq = {10, 20, 30};
+
+cout << dq[0];      // 10
+cout << dq[1];      // 20
+cout << dq.front(); // 10
+cout << dq.back();  // 30
 ```
 
