@@ -294,6 +294,9 @@ if(v.empty());
 v.insert(v.begin(), 1); // 往开头插一个数
 v.insert(v.begin()+2, 100); // 位置，数值，获得 1 2 100 3 4
 v.insert(v.begin(), 5, 1); // 位置，个数，数值
+
+vector<int> left = preorderTraversal(root->left);
+result.insert(result.end(), left.begin(), left.end()); // 插入数组
 ```
 
 删除：
